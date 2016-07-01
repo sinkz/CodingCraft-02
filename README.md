@@ -1,2 +1,2 @@
 # CodingCraft-02
-Scaffolding with MvcScaffolding
+Scaffolding with MvcScaffolding :D
