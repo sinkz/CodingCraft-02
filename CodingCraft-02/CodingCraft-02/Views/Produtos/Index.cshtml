@@ -16,7 +16,22 @@
             Nome
         </th>
         <th>
+            Tamanho
+        </th>
+        <th>
+            EstiloGola
+        </th>
+        <th>
             Preco
+        </th>
+        <th>
+            Estoque
+        </th>
+        <th>
+            CategoriasProduto
+        </th>
+        <th>
+            GruposProdutos
         </th>
     </tr>
 
@@ -31,7 +46,22 @@
 			@item.Nome
         </td>
         <td>
+			@item.Tamanho
+        </td>
+        <td>
+			@item.EstiloGola
+        </td>
+        <td>
 			@String.Format("{0:F}", item.Preco)
+        </td>
+        <td>
+			@item.Estoque
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.CategoriasProduto).ToString()
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.GruposProdutos).ToString()
         </td>
     </tr>
 }

@@ -1,0 +1,25 @@
+@model CodingCraft_02.Models.CategoriaProduto
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>CategoriaProduto</legend>
+
+        @Html.HiddenFor(model => model.CategoriaProdutoId)
+		@Html.Partial("_CriarOuEditar", Model)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

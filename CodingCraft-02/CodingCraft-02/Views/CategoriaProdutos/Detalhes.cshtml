@@ -1,0 +1,23 @@
+@model CodingCraft_02.Models.CategoriaProduto
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<fieldset>
+    <legend>CategoriaProduto</legend>
+
+    <div class="display-label">Categoria</div>
+    <div class="display-field">@Model.Categoria</div>
+
+    <div class="display-label">Produto</div>
+    <div class="display-field">@(Model.Produto == null ? "None" : Model.Produto.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id=Model.CategoriaProdutoId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+

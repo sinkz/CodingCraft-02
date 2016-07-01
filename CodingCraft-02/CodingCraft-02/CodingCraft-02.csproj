@@ -197,14 +197,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriaProdutosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\CodingCraft02Context.cs" />
+    <Compile Include="Models\GrupoProduto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -386,6 +390,12 @@
     <Content Include="Views\Produtos\Detalhes.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Produtos\_CriarOuEditar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Criar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Editar.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Excluir.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Detalhes.cshtml" />
+    <Content Include="Views\CategoriaProdutos\Index.cshtml" />
+    <Content Include="Views\CategoriaProdutos\_CriarOuEditar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

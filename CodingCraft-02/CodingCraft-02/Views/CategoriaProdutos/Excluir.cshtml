@@ -1,0 +1,26 @@
+@model CodingCraft_02.Models.CategoriaProduto
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CategoriaProduto</legend>
+
+    <div class="display-label">Categoria</div>
+    <div class="display-field">@Model.Categoria</div>
+
+    <div class="display-label">Produto</div>
+    <div class="display-field">@(Model.Produto == null ? "None" : Model.Produto.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+}
+
+

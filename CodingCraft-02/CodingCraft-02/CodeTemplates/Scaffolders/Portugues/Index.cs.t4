@@ -27,7 +27,7 @@
 <h2><#= Model.ViewName #></h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Criar")
 </p>
 <table>
     <tr>
@@ -50,15 +50,15 @@ foreach (ModelProperty property in properties) {
     <tr>
 <# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.<#= Model.PrimaryKeyName #> }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.<#= Model.PrimaryKeyName #> }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.<#= Model.PrimaryKeyName #> })
+            @Html.ActionLink("Editar", "Editar", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.<#= Model.PrimaryKeyName #> })
         </td>
 <# } else { #>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Excluir", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Editar", "Editar", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Excluir", "Excluir", new { /* id=item.PrimaryKey */ })
         </td>
 <# } #>
 <#  

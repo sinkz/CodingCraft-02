@@ -1,10 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using CodingCraft_02.Models;
 
 namespace CodingCraft_02.Controllers
-{
+{   
     public class ProdutosController : Controller
     {
         private CodingCraft02Context context = new CodingCraft02Context();
@@ -18,49 +22,56 @@ namespace CodingCraft_02.Controllers
         }
 
         //
-        // GET: /Produtos/Details/5
+        // GET: /Produtos/Detalhes/5
 
-        public ViewResult Detalhes(long id)
+        public ViewResult Detalhes(System.Guid id)
         {
             Produto produto = context.Produtos.Single(x => x.ProdutoId == id);
             return View(produto);
         }
 
         //
-        // GET: /Produtos/Create
+        // GET: /Produtos/Criar
 
         public ActionResult Criar()
         {
+            ViewBag.PossibleCategoriaProdutos = context.CategoriaProdutos;
+            ViewBag.PossibleGrupoProdutos = context.GrupoProdutos;
             return View();
         } 
 
         //
-        // POST: /Produtos/Create
+        // POST: /Produtos/Criar
 
         [HttpPost]
         public ActionResult Criar(Produto produto)
         {
             if (ModelState.IsValid)
             {
+                produto.ProdutoId = Guid.NewGuid();
                 context.Produtos.Add(produto);
                 context.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
+            ViewBag.PossibleCategoriaProdutos = context.CategoriaProdutos;
+            ViewBag.PossibleGrupoProdutos = context.GrupoProdutos;
             return View(produto);
         }
         
         //
-        // GET: /Produtos/Edit/5
+        // GET: /Produtos/Editar/5
  
-        public ActionResult Editar(long id)
+        public ActionResult Editar(System.Guid id)
         {
             Produto produto = context.Produtos.Single(x => x.ProdutoId == id);
+            ViewBag.PossibleCategoriaProdutos = context.CategoriaProdutos;
+            ViewBag.PossibleGrupoProdutos = context.GrupoProdutos;
             return View(produto);
         }
 
         //
-        // POST: /Produtos/Edit/5
+        // POST: /Produtos/Editar/5
 
         [HttpPost]
         public ActionResult Editar(Produto produto)
@@ -71,23 +82,25 @@ namespace CodingCraft_02.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PossibleCategoriaProdutos = context.CategoriaProdutos;
+            ViewBag.PossibleGrupoProdutos = context.GrupoProdutos;
             return View(produto);
         }
 
         //
-        // GET: /Produtos/Delete/5
+        // GET: /Produtos/Excluir/5
  
-        public ActionResult Excluir(long id)
+        public ActionResult Excluir(System.Guid id)
         {
             Produto produto = context.Produtos.Single(x => x.ProdutoId == id);
             return View(produto);
         }
 
         //
-        // POST: /Produtos/Delete/5
+        // POST: /Produtos/Excluir/5
 
         [HttpPost, ActionName("Excluir")]
-        public ActionResult ExcluirConfirmed(long id)
+        public ActionResult ExcluirConfirmed(System.Guid id)
         {
             Produto produto = context.Produtos.Single(x => x.ProdutoId == id);
             context.Produtos.Remove(produto);

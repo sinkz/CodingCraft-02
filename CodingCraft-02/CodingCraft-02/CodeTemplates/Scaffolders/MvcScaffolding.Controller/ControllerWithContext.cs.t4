@@ -51,18 +51,18 @@ namespace <#= Model.ControllerNamespace #>
         }
 
         //
-        // GET: /<#= routingName #>/Details/5
+        // GET: /<#= routingName #>/Detalhes/5
 
-        public ViewResult Details(<#= primaryKeyProperty.Type.AsString #> id)
+        public ViewResult Detalhes(<#= primaryKeyProperty.Type.AsString #> id)
         {
             <#= modelName #> <#= modelVariable #> = context.<#= modelNamePlural #>.Single(x => x.<#= primaryKeyProperty.Name #> == id);
             return View(<#= modelVariable #>);
         }
 
         //
-        // GET: /<#= routingName #>/Create
+        // GET: /<#= routingName #>/Criar
 
-        public ActionResult Create()
+        public ActionResult Criar()
         {
 <# foreach(var relatedEntity in relatedEntities.Where(x => x.RelationType == RelationType.Parent)) { #>
             ViewBag.Possible<#= relatedEntity.RelationNamePlural #> = context.<#= relatedEntity.RelatedEntityTypeNamePlural #>;
@@ -71,10 +71,10 @@ namespace <#= Model.ControllerNamespace #>
         } 
 
         //
-        // POST: /<#= routingName #>/Create
+        // POST: /<#= routingName #>/Criar
 
         [HttpPost]
-        public ActionResult Create(<#= modelName #> <#= modelVariable #>)
+        public ActionResult Criar(<#= modelName #> <#= modelVariable #>)
         {
             if (ModelState.IsValid)
             {
@@ -97,9 +97,9 @@ namespace <#= Model.ControllerNamespace #>
         }
         
         //
-        // GET: /<#= routingName #>/Edit/5
+        // GET: /<#= routingName #>/Editar/5
  
-        public ActionResult Edit(<#= primaryKeyProperty.Type.AsString #> id)
+        public ActionResult Editar(<#= primaryKeyProperty.Type.AsString #> id)
         {
             <#= modelName #> <#= modelVariable #> = context.<#= modelNamePlural #>.Single(x => x.<#= primaryKeyProperty.Name #> == id);
 <# foreach(var relatedEntity in relatedEntities.Where(x => x.RelationType == RelationType.Parent)) { #>
@@ -109,10 +109,10 @@ namespace <#= Model.ControllerNamespace #>
         }
 
         //
-        // POST: /<#= routingName #>/Edit/5
+        // POST: /<#= routingName #>/Editar/5
 
         [HttpPost]
-        public ActionResult Edit(<#= modelName #> <#= modelVariable #>)
+        public ActionResult Editar(<#= modelName #> <#= modelVariable #>)
         {
             if (ModelState.IsValid)
             {
@@ -132,19 +132,19 @@ namespace <#= Model.ControllerNamespace #>
         }
 
         //
-        // GET: /<#= routingName #>/Delete/5
+        // GET: /<#= routingName #>/Excluir/5
  
-        public ActionResult Delete(<#= primaryKeyProperty.Type.AsString #> id)
+        public ActionResult Excluir(<#= primaryKeyProperty.Type.AsString #> id)
         {
             <#= modelName #> <#= modelVariable #> = context.<#= modelNamePlural #>.Single(x => x.<#= primaryKeyProperty.Name #> == id);
             return View(<#= modelVariable #>);
         }
 
         //
-        // POST: /<#= routingName #>/Delete/5
+        // POST: /<#= routingName #>/Excluir/5
 
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(<#= primaryKeyProperty.Type.AsString #> id)
+        [HttpPost, ActionName("Excluir")]
+        public ActionResult ExcluirConfirmed(<#= primaryKeyProperty.Type.AsString #> id)
         {
             <#= modelName #> <#= modelVariable #> = context.<#= modelNamePlural #>.Single(x => x.<#= primaryKeyProperty.Name #> == id);
 <# if(isObjectContext) { #>

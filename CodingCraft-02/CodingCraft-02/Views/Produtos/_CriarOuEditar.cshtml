@@ -11,6 +11,22 @@
 </div>
 
 <div class="editor-label">
+    @Html.LabelFor(model => model.Tamanho)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Tamanho)
+    @Html.ValidationMessageFor(model => model.Tamanho)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.EstiloGola)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.EstiloGola)
+    @Html.ValidationMessageFor(model => model.EstiloGola)
+</div>
+
+<div class="editor-label">
     @Html.LabelFor(model => model.Preco)
 </div>
 <div class="editor-field">
@@ -18,3 +34,33 @@
     @Html.ValidationMessageFor(model => model.Preco)
 </div>
 
+<div class="editor-label">
+    @Html.LabelFor(model => model.Estoque)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Estoque)
+    @Html.ValidationMessageFor(model => model.Estoque)
+</div>
+
+<div class="editor-label">
+    CategoriaProduto
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.CategoriaProdutoId, ((IEnumerable<CodingCraft_02.Models.CategoriaProduto>)ViewBag.PossibleCategoriaProdutos).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.CategoriaProdutoId.ToString(),
+        Selected = (Model != null) && (option.CategoriaProdutoId == Model.CategoriaProdutoId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.CategoriaProdutoId)
+</div>
+<div class="editor-label">
+    GrupoProduto
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.GrupoProdutoId, ((IEnumerable<CodingCraft_02.Models.GrupoProduto>)ViewBag.PossibleGrupoProdutos).Select(option => new SelectListItem {
+        Text = Html.DisplayTextFor(_ => option).ToString(), 
+        Value = option.GrupoProdutoId.ToString(),
+        Selected = (Model != null) && (option.GrupoProdutoId == Model.GrupoProdutoId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.GrupoProdutoId)
+</div>
